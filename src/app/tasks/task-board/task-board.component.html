@@ -1,0 +1,54 @@
+
+<div class="flex flex-col md:flex-row gap-6" cdkDropListGroup>
+
+  <div class="flex-1 min-w-[300px] bg-gray-100 rounded-lg p-4">
+    
+    <h3 class="font-semibold mb-4">To Do ({{ todo.length }})</h3>
+
+    <div
+      cdkDropList
+      id="todo-list"
+      [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="connectedTo"
+      (cdkDropListDropped)="drop($event)"
+      class="min-h-[200px] space-y-3"
+    >
+ 
+      @for(task of todo; track task.id) {
+        <div cdkDrag class="bg-white p-3 rounded shadow cursor-move">{{ task.name }}</div>
+      }
+    </div>
+  </div>
+
+  <div class="flex-1 min-w-[300px] bg-gray-100 rounded-lg p-4">
+    <h3 class="font-semibold mb-4">In Progress ({{ inProgress.length }})</h3>
+    <div
+      cdkDropList
+      id="inprogress-list"
+      [cdkDropListData]="inProgress"
+      [cdkDropListConnectedTo]="connectedTo"
+      (cdkDropListDropped)="drop($event)"
+      class="min-h-[200px] space-y-3"
+    >
+      @for(task of inProgress; track task.id) {
+        <div cdkDrag class="bg-white p-3 rounded shadow cursor-move">{{ task.name }}</div>
+      }
+    </div>
+  </div>
+
+  <div class="flex-1 min-w-[300px] bg-gray-100 rounded-lg p-4">
+    <h3 class="font-semibold mb-4">Done ({{ done.length }})</h3>
+    <div
+      cdkDropList
+      id="done-list"
+      [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="connectedTo"
+      (cdkDropListDropped)="drop($event)"
+      class="min-h-[200px] space-y-3"
+    >
+      @for(task of done; track task.id) {
+        <div cdkDrag class="bg-white p-3 rounded shadow cursor-move">{{ task.name }}</div>
+      }
+    </div>
+  </div>
+</div>
