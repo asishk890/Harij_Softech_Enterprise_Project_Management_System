@@ -1,0 +1,55 @@
+
+<div class="flex h-screen bg-gray-100 font-sans">
+ 
+  <aside class="w-64 flex-shrink-0 bg-gray-800 text-white">
+    <div class="p-4 text-2xl font-bold border-b border-gray-700">EPMS</div>
+    <nav class="mt-6">
+  
+      <a 
+        routerLink="/dashboard" 
+        routerLinkActive="bg-gray-700" 
+        class="block py-3 px-4 rounded-md transition duration-200 hover:bg-gray-700"
+      >
+        Dashboard
+      </a>
+      <a 
+        routerLink="/projects" 
+        routerLinkActive="bg-gray-700" 
+        class="block py-3 px-4 rounded-md transition duration-200 hover:bg-gray-700"
+      >
+        Projects
+      </a>
+      @if (currentUser()?.role === 'Admin') {
+        <a 
+          routerLink="/users" 
+          routerLinkActive="bg-gray-700" 
+          class="block py-3 px-4 rounded-md transition duration-200 hover:bg-gray-700"
+        >
+          User Management
+        </a>
+      }
+    </nav>
+  </aside>
+
+
+  <div class="flex flex-1 flex-col overflow-hidden">
+    <header class="flex items-center justify-between bg-white p-4 shadow-md">
+      <div class="text-xl font-semibold text-gray-700">
+       
+      </div>
+   
+      @if (currentUser(); as user) {
+        <div class="flex items-center space-x-4">
+          <span class="text-gray-600">Welcome, {{ user.name }} ({{ user.role }})</span>
+          <button (click)="logout()" class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Logout
+          </button>
+        </div>
+      }
+    </header>
+
+    <main class="flex-1 overflow-y-auto p-6">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
