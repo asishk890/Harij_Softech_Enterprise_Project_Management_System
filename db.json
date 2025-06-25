@@ -27,6 +27,20 @@
       "email": "asishk890@gmail.com",
       "role": "Developer",
       "password": "password"
+    },
+    {
+      "id": "21e3",
+      "name": "Alex",
+      "email": "alex@gmail.com",
+      "role": "Admin",
+      "password": "password"
+    },
+    {
+      "id": "1bac",
+      "name": "Rolex",
+      "email": "rolex@gmail.com",
+      "role": "Project Manager",
+      "password": "password"
     }
   ],
   "projects": [
