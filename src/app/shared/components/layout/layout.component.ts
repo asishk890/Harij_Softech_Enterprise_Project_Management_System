@@ -1,5 +1,4 @@
-
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../../auth/auth.service';
 
@@ -10,8 +9,10 @@ import { AuthService } from '../../../auth/auth.service';
   templateUrl: './layout.component.html',
 })
 export class LayoutComponent {
-  private authService = inject(AuthService);
+ 
+  public isSidebarOpen = signal(false);
 
+  private authService = inject(AuthService);
   public readonly currentUser = this.authService.currentUser;
 
   logout(): void {

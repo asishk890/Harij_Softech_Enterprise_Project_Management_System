@@ -1,33 +1,43 @@
 
 @if (dashboardData(); as data) {
-  <div class="space-y-8">
+ 
+  <div class="space-y-6 md:space-y-8 p-4 md:p-6">
   
+   
     <section>
-      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Key Metrics</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mb-4">Key Metrics</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-lg font-medium text-gray-600">Total Projects</h3>
-          <p class="mt-2 text-3xl font-bold text-indigo-600">{{ data.kpis.projectCount }}</p>
+       
+        <div class="bg-white p-4 md:p-6 rounded-lg shadow-md">
+          <h3 class="text-base md:text-lg font-medium text-gray-600">Total Projects</h3>
+          <p class="mt-2 text-2xl md:text-3xl font-bold text-indigo-600">{{ data.kpis.projectCount }}</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-lg font-medium text-gray-600">Active Users</h3>
-          <p class="mt-2 text-3xl font-bold text-green-600">{{ data.kpis.activeUsers }}</p>
+
+       
+        <div class="bg-white p-4 md:p-6 rounded-lg shadow-md">
+          <h3 class="text-base md:text-lg font-medium text-gray-600">Active Users</h3>
+          <p class="mt-2 text-2xl md:text-3xl font-bold text-green-600">{{ data.kpis.activeUsers }}</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-lg font-medium text-gray-600">Overdue Tasks</h3>
-          <p class="mt-2 text-3xl font-bold text-red-600">{{ data.kpis.overdueTasks }}</p>
+
+    
+        <div class="bg-white p-4 md:p-6 rounded-lg shadow-md">
+          <h3 class="text-base md:text-lg font-medium text-gray-600">Overdue Tasks</h3>
+          <p class="mt-2 text-2xl md:text-3xl font-bold text-red-600">{{ data.kpis.overdueTasks }}</p>
         </div>
       </div>
     </section>
 
    
-    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
       
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold text-gray-700 mb-4">Projects by Status</h3>
+     
+      <div class="bg-white p-4 md:p-6 rounded-lg shadow-md">
+        <h3 class="text-lg md:text-xl font-semibold text-gray-700 mb-4">Projects by Status</h3>
+
         <ngx-charts-pie-chart
-          [view]="view"
           [scheme]="colorScheme"
           [results]="data.projectsByStatus"
           [gradient]="false"
@@ -39,10 +49,11 @@
       </div>
 
      
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-xl font-semibold text-gray-700 mb-4">Tasks by Priority</h3>
+      
+      <div class="bg-white p-4 md:p-6 rounded-lg shadow-md">
+        <h3 class="text-lg md:text-xl font-semibold text-gray-700 mb-4">Tasks by Priority</h3>
+
         <ngx-charts-pie-chart
-          [view]="view"
           [scheme]="colorScheme"
           [results]="data.tasksByPriority"
           [gradient]="false"
@@ -55,8 +66,9 @@
     </section>
   </div>
 } @else {
- 
+
   <div class="flex justify-center items-center h-64">
-    <p class="text-gray-500">Loading dashboard data...</p>
+    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+    <p class="ml-4 text-gray-500">Loading dashboard data...</p>
   </div>
 }
