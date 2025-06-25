@@ -1,0 +1,62 @@
+
+@if (dashboardData(); as data) {
+  <div class="space-y-8">
+  
+    <section>
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Key Metrics</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-lg font-medium text-gray-600">Total Projects</h3>
+          <p class="mt-2 text-3xl font-bold text-indigo-600">{{ data.kpis.projectCount }}</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-lg font-medium text-gray-600">Active Users</h3>
+          <p class="mt-2 text-3xl font-bold text-green-600">{{ data.kpis.activeUsers }}</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-lg font-medium text-gray-600">Overdue Tasks</h3>
+          <p class="mt-2 text-3xl font-bold text-red-600">{{ data.kpis.overdueTasks }}</p>
+        </div>
+      </div>
+    </section>
+
+   
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-gray-700 mb-4">Projects by Status</h3>
+        <ngx-charts-pie-chart
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="data.projectsByStatus"
+          [gradient]="false"
+          [legend]="true"
+          [labels]="showLabels"
+          [doughnut]="doughnut"
+        >
+        </ngx-charts-pie-chart>
+      </div>
+
+     
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold text-gray-700 mb-4">Tasks by Priority</h3>
+        <ngx-charts-pie-chart
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="data.tasksByPriority"
+          [gradient]="false"
+          [legend]="true"
+          [labels]="showLabels"
+          [doughnut]="doughnut"
+        >
+        </ngx-charts-pie-chart>
+      </div>
+    </section>
+  </div>
+} @else {
+ 
+  <div class="flex justify-center items-center h-64">
+    <p class="text-gray-500">Loading dashboard data...</p>
+  </div>
+}

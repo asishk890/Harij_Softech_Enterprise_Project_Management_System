@@ -1,0 +1,41 @@
+
+<div class="max-w-4xl mx-auto">
+  <div class="bg-white rounded-lg shadow-md">
+   
+    <nav class="flex border-b">
+      <a
+        [routerLink]="[]"
+        [queryParams]="{}"
+        routerLinkActive="border-indigo-500 text-indigo-600"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="py-4 px-6 block hover:text-indigo-500 focus:outline-none border-b-2 font-medium"
+      >
+        Project Details
+      </a>
+      @if (isEditMode) {
+        <a
+          [routerLink]="['tasks']"
+          routerLinkActive="border-indigo-500 text-indigo-600"
+          class="py-4 px-6 block hover:text-indigo-500 focus:outline-none border-b-2 font-medium"
+        >
+          Tasks
+        </a>
+      }
+    </nav>
+
+   
+    <div class="p-6 md:p-8">
+   
+      <router-outlet></router-outlet>
+
+      @if (!isChildRouteActive) {
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+          {{ isEditMode ? 'Edit Project' : 'Create New Project' }}
+        </h2>
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" novalidate>
+       
+        </form>
+      }
+    </div>
+  </div>
+</div>
