@@ -1,19 +1,90 @@
 {
   "users": [
-    { "id": 1, "name": "Admin User", "email": "admin@epms.com", "password": "password", "role": "Admin" },
-    { "id": 2, "name": "Manager Mike", "email": "manager@epms.com", "password": "password", "role": "Project Manager" },
-    { "id": 3, "name": "Developer Dave", "email": "dev@epms.com", "password": "password", "role": "Developer" }
+    {
+      "id": "1",
+      "name": "Admin User",
+      "email": "admin@epms.com",
+      "password": "password",
+      "role": "Admin"
+    },
+    {
+      "id": "2",
+      "name": "Manager Mike",
+      "email": "manager@epms.com",
+      "password": "password",
+      "role": "Project Manager"
+    },
+    {
+      "id": "3",
+      "name": "Developer Dave",
+      "email": "dev@epms.com",
+      "password": "password",
+      "role": "Developer"
+    },
+    {
+      "id": "34a4",
+      "name": "Asish kumar",
+      "email": "asishk890@gmail.com",
+      "role": "Developer",
+      "password": "password"
+    }
   ],
   "projects": [
-    { "id": 101, "name": "EPMS Core Development", "status": "In Progress", "managerId": 2, "team": [1, 2, 3] },
-    { "id": 102, "name": "Marketing Website Relaunch", "status": "To Do", "managerId": 2, "team": [2, 3] }
+    {
+      "id": "101",
+      "name": "EPMS Core Development",
+      "status": "In Progress",
+      "managerId": 2,
+      "team": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "102",
+      "name": "Marketing Website Relaunch",
+      "status": "To Do",
+      "managerId": 2,
+      "team": [
+        2,
+        3
+      ]
+    }
   ],
   "tasks": [
-    { "id": 1, "projectId": 101, "name": "Setup Authentication", "status": "Done", "priority": "High", "assigneeId": 3 },
-    { "id": 2, "projectId": 101, "name": "Create Dashboard UI", "status": "In Progress", "priority": "High", "assigneeId": 3 },
-    { "id": 3, "projectId": 102, "name": "Design New Homepage", "status": "To Do", "priority": "Medium", "assigneeId": 2 }
+    {
+      "id": "1",
+      "projectId": 101,
+      "name": "Setup Authentication",
+      "status": "Done",
+      "priority": "High",
+      "assigneeId": 3
+    },
+    {
+      "id": "2",
+      "projectId": 101,
+      "name": "Create Dashboard UI",
+      "status": "In Progress",
+      "priority": "High",
+      "assigneeId": 3,
+      "dueDate": "2024-05-15"
+    },
+    {
+      "id": "3",
+      "projectId": 102,
+      "name": "Design New Homepage",
+      "status": "To Do",
+      "priority": "Medium",
+      "assigneeId": 2
+    }
   ],
   "notifications": [
-    { "id": 1, "userId": 3, "message": "You have been assigned to 'Create Dashboard UI'", "read": false }
+    {
+      "id": "1",
+      "userId": 3,
+      "message": "You have been assigned to 'Create Dashboard UI'",
+      "read": false
+    }
   ]
 }

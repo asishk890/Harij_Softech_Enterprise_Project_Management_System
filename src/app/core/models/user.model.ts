@@ -8,4 +8,5 @@ export interface User {
   role: UserRole;
 
   token?: string;
+  password?: string;
 }
